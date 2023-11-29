@@ -9,49 +9,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- cropper modal -->
     <div id="cropperModal">
         <div id="imageCropBox" class="">
             <div style="text-align: end;">
-                <button onclick="closeCropBox()">Close</button>
+                <button class="close" onclick="closeCropBox()">close</button>
             </div>
-            <section class="add-product-page">
-
-                <!-- leftbox -->
-                <div class="d-flex" style="height: inherit;">
-                    <div class="add-product-box-2">
+            <section class="page">          
+                    <div class="box">
                         <div class="cropping-box"></div>
                     </div>
 
-                    <!--rightbox-->
-                    <div class="add-parent-box">
-
-                        <div style="min-height: 5rem;">
-                            <div class="add-product-box-2 img-result hide">
-                                <!-- result of crop -->
-                                <img class="cropped" src="" alt="">
-                            </div>
-                        </div>
-
-                        <div class="add-product-options hide d-none">
-                            <label> Width</label>
-                            <input type="number" class="img-w" value="300" min="100" max="1200" />
-                        </div>
-                        <!-- input file -->
-                        <div class="add-product-box mt-5">
-                            <!-- <div class="add-product-options hide d-none">
-                                <label> Width</label>
-                                <input type="number" class="img-w" value="300" min="100" max="1200" />
-                            </div> -->
-                            <!-- save btn -->
+                    <div class="add-parent-box">                        
                             <div>
                                 <button class="btn btn-primary crop mx-3">Crop</button>
                             </div>
-                        </div>
                     </div>
-                </div>
             </section>
         </div>
     </div>
+    <!-- /cropper modal/  -->
+
+    <!-- form  -->
     <section>
         <form action="">
             <label for="fileUploader"></label>
@@ -59,6 +39,7 @@
             <div id="imagePreview"></div>
         </form>
     </section>
+    <!-- /form/  -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js'></script>
     <script src="script.js"></script>
 </body>

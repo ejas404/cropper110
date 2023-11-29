@@ -4,7 +4,6 @@ let fileInputs = document.querySelectorAll('[data-image-preview]')
 let croppingBox = document.querySelector('.cropping-box'),
     img_result = document.querySelector('.img-result'),
     img_w = document.querySelector('.img-w'),
-    img_h = document.querySelector('.img-h'),
     options = document.querySelector('.add-product-options'),
     crop = document.querySelector('.crop'),
     cropper = '',
@@ -33,8 +32,7 @@ fileInputs.forEach(fileInput => {
 
 
 function cropImage(e) {
-    console.log('crop event occured')
-    document.getElementById('cropperModal').style.display = 'block'
+    document.getElementById('cropperModal').style.display = 'flex'
  
 
     let img = document.createElement('img');
@@ -51,20 +49,17 @@ function cropImage(e) {
 
 
 
-// save on click
+//crop and save on click
 crop.addEventListener('click', e => {
     e.preventDefault();
     // get result to data uri
 
     let imgSrc = cropper.getCroppedCanvas({
-        width: img_w.value // input value
+        width: 300 // input value
     }).toDataURL();
    
     if (imgSrc && imgNames !== null) {
         let fileUploader = document.getElementById(currentInput)
-        console.log('b4ewrerer')
-        console.log(fileUploader.files)
-        console.log(imgNames)
         fetch(imgSrc)
             .then(res => res.blob())
             .then(blob => {
@@ -75,9 +70,11 @@ crop.addEventListener('click', e => {
                 for (let each of fileUploader.files) {
                     if (each.name !== imgNames) {
                         dt.items.add(each)
+                    }else{
+                        dt.items.add(file)
                     }
                 }
-                dt.items.add(file)
+                
 
                 fileUploader.files = dt.files
 
