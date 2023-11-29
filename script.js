@@ -1,15 +1,12 @@
 let fileInputs = document.querySelectorAll('[data-image-preview]')
 
 
-let croppingBox = document.querySelector('.cropping-box'),
-    img_result = document.querySelector('.img-result'),
-    img_w = document.querySelector('.img-w'),
-    options = document.querySelector('.add-product-options'),
-    crop = document.querySelector('.crop'),
+let croppingBox = document.querySelector('.cropper110-cropping-box'),
+    crop = document.querySelector('.cropper110-crop'),
     cropper = '',
     currentInput = null,
-    imgNames = null;
-    let imgSrc = null;
+    imgNames = null,
+    imgSrc = null;
 
 fileInputs.forEach(fileInput => {
     fileInput.addEventListener('change', () => {
@@ -20,7 +17,7 @@ fileInputs.forEach(fileInput => {
             let img = document.createElement('img')
             img.src = imgSrc
             img.dataset.fileName = each.name
-            console.log(fileInput.id , 'file inut id')
+            console.log(fileInput.id, 'file inut id')
             img.dataset.input = fileInput.id
             img.addEventListener('click', cropImage)
 
@@ -32,8 +29,8 @@ fileInputs.forEach(fileInput => {
 
 
 function cropImage(e) {
-    document.getElementById('cropperModal').style.display = 'flex'
- 
+    
+    document.getElementById('cropper110Modal').style.display = 'flex'
 
     let img = document.createElement('img');
     img.id = 'image';
@@ -57,7 +54,7 @@ crop.addEventListener('click', e => {
     let imgSrc = cropper.getCroppedCanvas({
         width: 300 // input value
     }).toDataURL();
-   
+
     if (imgSrc && imgNames !== null) {
         let fileUploader = document.getElementById(currentInput)
         fetch(imgSrc)
@@ -70,11 +67,11 @@ crop.addEventListener('click', e => {
                 for (let each of fileUploader.files) {
                     if (each.name !== imgNames) {
                         dt.items.add(each)
-                    }else{
+                    } else {
                         dt.items.add(file)
                     }
                 }
-                
+
 
                 fileUploader.files = dt.files
 
@@ -95,11 +92,10 @@ crop.addEventListener('click', e => {
             })
     }
 
-    closeCropBox()
-   
+    document.querySelector('.cropper110-close').click()
 });
 
-
-function closeCropBox() {
-    document.getElementById('cropperModal').style.display = 'none'
-}
+document.querySelector('.cropper110-close')
+    .addEventListener('click', () => {
+        document.getElementById('cropper110Modal').style.display = 'none'
+    })

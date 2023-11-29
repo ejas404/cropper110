@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,24 +9,23 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/cropper/2.3.4/cropper.min.css'>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- cropper modal -->
-    <div id="cropperModal">
-        <div id="imageCropBox" class="">
+    <div id="cropper110Modal">
+        <div id="imageCropBox">
             <div style="text-align: end;">
-                <button class="close" onclick="closeCropBox()">close</button>
+                <button class="cropper110-close">close</button>
             </div>
-            <section class="page">          
-                    <div class="box">
-                        <div class="cropping-box"></div>
-                    </div>
+            <section class="cropper110-page">
+                <div class="cropper110-box">
+                    <div class="cropper110-cropping-box"></div>
+                </div>
 
-                    <div class="add-parent-box">                        
-                            <div>
-                                <button class="btn btn-primary crop mx-3">Crop</button>
-                            </div>
-                    </div>
+                <div>
+                    <button class="cropper110-crop mx-3">Crop</button>
+                </div>
             </section>
         </div>
     </div>
@@ -43,4 +43,5 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/cropperjs/0.8.1/cropper.min.js'></script>
     <script src="script.js"></script>
 </body>
+
 </html>
