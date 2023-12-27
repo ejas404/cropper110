@@ -17,7 +17,6 @@ fileInputs.forEach(fileInput => {
             let img = document.createElement('img')
             img.src = imgSrc
             img.dataset.fileName = each.name
-            console.log(fileInput.id, 'file inut id')
             img.dataset.input = fileInput.id
             img.addEventListener('click', cropImage)
 
@@ -60,7 +59,6 @@ crop.addEventListener('click', e => {
         fetch(imgSrc)
             .then(res => res.blob())
             .then(blob => {
-                console.log(imgNames)
                 let file = new File([blob], `${imgNames}-${Date.now()}.png`, { type: "image/jpeg" })
 
                 const dt = new DataTransfer()
@@ -75,7 +73,6 @@ crop.addEventListener('click', e => {
 
                 fileUploader.files = dt.files
 
-                console.log(fileUploader.files)
 
                 let previewDiv = document.querySelector(fileUploader.dataset.imagePreview)
                 previewDiv.innerHTML = ""
